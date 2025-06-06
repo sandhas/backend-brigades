@@ -1,0 +1,10 @@
+.vscode
+.idea
+
+node_modules
+reports
+dist/
+
+# VS Code
+.vscode
+!.vscode/tasks.js
