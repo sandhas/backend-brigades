@@ -75,7 +75,7 @@ describe('BrigadasService', () => {
       where: { id: 1 },
       data: { nome: 'Brigada Atualizada' },
     });
-    expect(updated.nome).toBe('Brigada Atualizada');
+    expect(updated && updated.nome).toBe('Brigada Atualizada');
   });
 
   it('should return null when updating non-existent brigada', async () => {

@@ -22,16 +22,26 @@ export class BrigadasService {
     });
   }
 
-  update(id: number, dto: Partial<CreateBrigadaDto>) {
-    return this.prisma.brigada.update({
-      where: { id },
-      data: dto,
-    });
+  async update(id: number, dto: Partial<CreateBrigadaDto>) {
+    try {
+      return await this.prisma.brigada.update({
+        where: { id },
+        data: dto,
+      });
+    } catch (e: any) {
+      if (e.code === 'P2025') return null;
+      throw e;
+    }
   }
 
-  remove(id: number) {
-    return this.prisma.brigada.delete({
-      where: { id },
-    });
+  async remove(id: number) {
+    try {
+      return await this.prisma.brigada.delete({
+        where: { id },
+      });
+    } catch (e: any) {
+      if (e.code === 'P2025') return null;
+      throw e;
+    }
   }
 }
